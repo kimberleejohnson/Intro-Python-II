@@ -8,8 +8,8 @@ class Player:
     
     # Returns the string definition of the object, we need it in order to print things. 
     def __str__(self):
-        s = f"Player: {self.name} is in the {self.current_room} room."
+        s = f"Your player {self.name} is in the {self.current_room} room."
         return s
     
     def __repr__(self): 
-        return f"Player: {self.name} is in the {self.current_room} room."
+        return f"Your player {self.name} is in the {self.current_room} room."

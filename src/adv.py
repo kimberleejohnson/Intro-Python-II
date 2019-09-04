@@ -3,7 +3,8 @@ import sys
 from player import Player 
 from room import Room
 
-# Declare all the rooms
+# Declare all the rooms, as instances of the Room Class in a dictionary called "room"
+
 room = {
     'outside':  Room("Outside Cave Entrance",
                      "North of you, the cave mount beckons"),
@@ -41,27 +42,26 @@ room['treasure'].s_to = room['narrow']
 
 # New player object that is currently in the 'outside' room.
 playerOne = Player("Kimberlee", 'outside')
-print(playerOne)
-
-# Write a loop (your REPL parser from the instructions) that:
-#
-# * Prints the current room name
-# * Prints the current description (the textwrap module might be useful here).
-# * Waits for user input and decides what to do.
-#
-# If the user enters a cardinal direction, attempt to move to the room there.
-# Print an error message if the movement isn't allowed.
-
 
 # Setting up Boolean for status of game
 active_session = True
 
 # Write a loop ('REPL parser' from the instructions) that, while the session is active:
 while active_session: 
+   
+   # * Prints the current room name
+   print(playerOne)
+   
+   # * Prints the current description
+   print(room[playerOne.current_room].description)
 
-   user_direction = input("\nEnter a cardinal direction your player should move to \n n for North \n e for East \n s for South \n w for West \n q to Quit \n Your input: ").lower()
+   # * Waits for user input and decides what to do.
+   user_direction = input("Enter a cardinal direction the player should move to \n n for North \n e for East \n s for South \n w for West \n q to Quit \n Your input: ").lower()
 
-    # If the user enters "q", quit the game.
+   # If the user enters "q", quit the game.
    if user_direction == 'q': 
       print("Thanks for playing. Goodbye!")
       sys.exit(1)
+   
+   # If the user enters a cardinal direction, attempt to move to the room there.
+   # Print an error message if the movement isn't allowed.
