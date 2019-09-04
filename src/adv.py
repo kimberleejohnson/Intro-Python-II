@@ -49,10 +49,11 @@ active_session = True
 # Write a loop ('REPL parser' from the instructions) that, while the session is active:
 while active_session: 
    
-   # * Prints the current room name
-   print(playerOne)
-   
-   # * Prints the current description
+   # Prints the current room name and description
+   # Room for improvement: print these as string literals 
+   print("You are in the...")
+   print(room[playerOne.current_room].name)
+   print("...")
    print(room[playerOne.current_room].description)
 
    # * Waits for user input and decides what to do.
@@ -64,4 +65,7 @@ while active_session:
       sys.exit(1)
    
    # If the user enters a cardinal direction, attempt to move to the room there.
+   if user_direction == 'n': 
+      room[playerOne.current_room] = room[playerOne.current_room].n_to
+
    # Print an error message if the movement isn't allowed.
