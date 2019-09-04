@@ -67,5 +67,18 @@ while active_session:
    # If the user enters a cardinal direction, attempt to move to the room there.
    if user_direction == 'n': 
       room[playerOne.current_room] = room[playerOne.current_room].n_to
+   
+   elif user_direction == 'e': 
+      room[playerOne.current_room] = room[playerOne.current_room].e_to
 
+   elif user_direction == 's': 
+      room[playerOne.current_room] = room[playerOne.current_room].s_to  
+
+   elif user_direction == 'w': 
+      room[playerOne.current_room] = room[playerOne.current_room].w_to  
+   
    # Print an error message if the movement isn't allowed.
+   else:
+      print("Whoops! That movement isn't allowed.") 
+
+   
