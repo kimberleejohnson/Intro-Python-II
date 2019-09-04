@@ -1,6 +1,6 @@
 # Importing sys so it will be easy to exit out 
 import sys 
-# from player import Player 
+from player import Player 
 from room import Room
 
 # Declare all the rooms
@@ -39,7 +39,9 @@ room['treasure'].s_to = room['narrow']
 # Main
 #
 
-# Make a new player object that is currently in the 'outside' room.
+# New player object that is currently in the 'outside' room.
+playerOne = Player("Kimberlee", 'outside')
+print(playerOne)
 
 # Write a loop (your REPL parser from the instructions) that:
 #
@@ -57,9 +59,9 @@ active_session = True
 # Write a loop ('REPL parser' from the instructions) that, while the session is active:
 while active_session: 
 
-    user_direction = input("\nEnter a cardinal direction your player should move to \n n for North \n e for East \n s for South \n w for West \n q to Quit \n Your input: ").lower()
+   user_direction = input("\nEnter a cardinal direction your player should move to \n n for North \n e for East \n s for South \n w for West \n q to Quit \n Your input: ").lower()
 
     # If the user enters "q", quit the game.
-    if user_direction == 'q': 
-        print("Thanks for playing. Goodbye!")
-        sys.exit(1)
+   if user_direction == 'q': 
+      print("Thanks for playing. Goodbye!")
+      sys.exit(1)
