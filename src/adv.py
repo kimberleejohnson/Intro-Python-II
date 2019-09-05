@@ -51,10 +51,7 @@ while active_session:
    
    # Prints the current room name and description
    # Room for improvement: print these as string literals 
-   print("You are in the...")
-   print(room[playerOne.current_room].name)
-   print("...")
-   print(room[playerOne.current_room].description)
+   print("\nYou are in the",room[playerOne.current_room].name,".\n",room[playerOne.current_room].description,".")
 
    # * Waits for user input and decides what to do.
    user_direction = input("Enter a cardinal direction the player should move to \n n for North \n e for East \n s for South \n w for West \n q to Quit \n Your input: ").lower()
@@ -63,22 +60,22 @@ while active_session:
    if user_direction == 'q': 
       print("Thanks for playing. Goodbye!")
       sys.exit(1)
-   
+
    # If the user enters a cardinal direction, attempt to move to the room there.
-   if user_direction == 'n': 
+   if user_direction == 'n' and room[playerOne.current_room].n_to: 
       room[playerOne.current_room] = room[playerOne.current_room].n_to
    
-   elif user_direction == 'e': 
+   elif user_direction == 'e' and room[playerOne.current_room].e_to: 
       room[playerOne.current_room] = room[playerOne.current_room].e_to
 
-   elif user_direction == 's': 
+   elif user_direction == 's' and room[playerOne.current_room].s_to: 
       room[playerOne.current_room] = room[playerOne.current_room].s_to  
 
-   elif user_direction == 'w': 
+   elif user_direction == 'w' and room[playerOne.current_room].w_to: 
       room[playerOne.current_room] = room[playerOne.current_room].w_to  
    
    # Print an error message if the movement isn't allowed.
    else:
-      print("Whoops! That movement isn't allowed.") 
+      print("Whoops! That movement isn't allowed. Please enter a new one. But first, remember where you are...") 
 
    
